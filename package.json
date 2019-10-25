@@ -19,7 +19,7 @@
     "@angular/router": "^8.2.12",
     "@angular/service-worker": "^8.2.12",
     "@ng-bootstrap/ng-bootstrap": "^5.1.1",
-    "@types/node": "^12.11.6",
+    "@types/node": "^12.11.7",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.3.1",
