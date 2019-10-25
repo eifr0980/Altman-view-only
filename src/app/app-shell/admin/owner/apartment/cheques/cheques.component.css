@@ -1,0 +1,23 @@
+#mainContent {
+    width: 100%;
+    background-color: rgb(98, 207, 195);
+    height: 47vh;
+    border-radius: 50px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-row-gap: 10px;
+
+}
+
+.container .cheque {
+    width: 100%;
+}

@@ -1,0 +1,23 @@
+<h1 mat-dialog-title dir="rtl">הוספת דו"ח</h1>
+<form [formGroup]="profileForm">
+  <div mat-dialog-content dir="rtl">
+    <table>
+      <tr>
+        <td>
+          <div class="custom-file">
+            <input type="file" placeholder="קובץ" class="custom-file-input" id="customFile"
+              (change)="onFileSelect($event)">
+            <label class="custom-file-label" for="customFile">הוסף דו"ח</label>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">ביטול</button>
+    <button mat-button type="submit" [disabled]="!profileForm.valid" [mat-dialog-close]="profileForm.value">שלח</button>
+  </div>
+</form>

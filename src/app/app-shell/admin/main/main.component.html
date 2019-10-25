@@ -1,0 +1,17 @@
+<main id="mainContent" dir="rtl">
+    <section id="ApartmentDetails" >
+
+
+        <div>
+            <nav mat-tab-nav-bar>
+                <a mat-tab-link *ngFor="let link of navLinks" [style.background-color]="link.backgroundColor"
+                    [routerLink]='[link.link]' routerLinkActive #rla="routerLinkActive"
+                    [active]="rla.isActive">
+                    {{link.label}}
+                </a>
+            </nav>
+
+            <router-outlet></router-outlet>
+        </div>
+    </section>
+</main>

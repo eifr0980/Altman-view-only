@@ -1,0 +1,50 @@
+<h1 mat-dialog-title dir="rtl">הוספת צ'ק</h1>
+<form [formGroup]="profileForm">
+  <div mat-dialog-content dir="rtl">
+    <table>
+      <tr *ngIf="data.residents">
+        <td>
+          <mat-form-field>
+            <mat-label>דייר</mat-label>
+            <select matNativeControl required formControlName = "resident_id">
+              <option *ngFor="let resident of data.residents" value="{{resident.id}}">{{ resident.first_name }}</option>
+            </select>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker2" placeholder="תאריך לצ'ק" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-checkbox formControlName="valid">האם הצ'ק תקין?</mat-checkbox>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="custom-file">
+            <input type="file" placeholder="קובץ" class="custom-file-input" id="customFile"
+              (change)="onFileSelect($event)">
+            <label class="custom-file-label" for="customFile">הוסף העתק צ'ק</label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+
+      </tr>
+    </table>
+
+
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">ביטול</button>
+    <button mat-button type="submit" [disabled]="!profileForm.valid" [mat-dialog-close]="profileForm.value">שלח</button>
+  </div>
+</form>

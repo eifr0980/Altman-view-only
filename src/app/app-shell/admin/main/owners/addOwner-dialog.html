@@ -1,0 +1,65 @@
+<h1 mat-dialog-title dir="rtl">הוספת בעל דירה חדש</h1>
+<form [formGroup]="profileForm">
+  <div mat-dialog-content dir="rtl">
+    <mat-form-field>
+      <input matInput placeholder="מס' תעודת זהות" maxlength="9" formControlName="personal_id" required>
+      <mat-error *ngIf="profileForm.get('personal_id').hasError('required')">נא להשלים</mat-error>
+      <mat-error *ngIf="profileForm.get('personal_id').hasError('minlength')">ת"ז צריכה להיות 9 ספרות</mat-error>
+    </mat-form-field>
+
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="שם פרטי" formControlName="first_name">
+            <mat-error *ngIf="profileForm.get('first_name').hasError('required')">נא להשלים</mat-error>
+            <mat-error *ngIf="profileForm.get('first_name').hasError('minlength')">ת"ז צריכה להיות 9 ספרות</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="שם משפחה" formControlName="last_name">
+            <mat-error *ngIf="profileForm.get('last_name').hasError('required')">נא להשלים</mat-error>
+            <mat-error *ngIf="profileForm.get('last_name').hasError('minlength')">ת"ז צריכה להיות 9 ספרות</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="כתובת מגורים" formControlName="address">
+          </mat-form-field>
+        </td>
+
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="מספר טלפון" maxlength="10" formControlName="phone_number" required>
+            <mat-error *ngIf="profileForm.get('phone_number').hasError('required')">נא להשלים</mat-error>
+            <mat-error *ngIf="profileForm.get('phone_number').hasError('minlength')">טלפון צריכה להיות 10 ספרות
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder='דוא"ל' formControlName="email" required>
+            <mat-error *ngIf="profileForm.get('email').hasError('required')">נא להשלים</mat-error>
+            <mat-error *ngIf="profileForm.get('email').hasError('email')">יש להכניס כתובת מייל תקינה</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+
+
+
+
+    <mat-form-field>
+      <input matInput placeholder="סיסמא" formControlName="password" required>
+      <mat-error *ngIf="profileForm.get('password').hasError('required')">נא להשלים</mat-error>
+    </mat-form-field>
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">ביטול</button>
+    <button mat-button type="submit" [disabled]="!profileForm.valid" [mat-dialog-close]="profileForm.value">שלח</button>
+  </div>
+</form>

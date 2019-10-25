@@ -1,0 +1,16 @@
+<main id="mainContent" dir="rtl">
+  <div class="details" *ngIf="report">
+    <p>
+      <span><strong>צפה בקובץ </strong> <button type="button" class="btn btn-success"
+          (click)="showPDF(report.file)">לחץ כאן</button>
+      </span>
+    </p>
+
+    <p>
+      <span><strong>נוצר בתאריך:</strong> {{ report.created_on }} </span>
+    </p>
+    <p>
+      <span><strong>עודכן בתאריך</strong> {{ report.updated_on }} </span>
+    </p>
+  </div>
+</main>

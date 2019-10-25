@@ -1,0 +1,38 @@
+<h1 mat-dialog-title dir="rtl">הוספת מסמך</h1>
+<form [formGroup]="profileForm">
+  <div mat-dialog-content dir="rtl">
+    <table>
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="שם המסמך" formControlName="name">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="קטגוריה" formControlName="category" >
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="custom-file">
+            <input type="file" placeholder="קובץ" class="custom-file-input" id="customFile"
+              (change)="onFileSelect($event)">
+            <label class="custom-file-label" for="customFile">הוסף העתק מסמך</label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+
+      </tr>
+    </table>
+
+
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">ביטול</button>
+    <button mat-button type="submit" [disabled]="!profileForm.valid" [mat-dialog-close]="profileForm.value">שלח</button>
+  </div>
+</form>

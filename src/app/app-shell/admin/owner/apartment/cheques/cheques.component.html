@@ -1,0 +1,16 @@
+<main id="mainContent" dir="rtl">
+    <div class="container">
+        <div *ngFor="let cheque of cheques" class="cheque">
+            {{ cheque.month }}  <span *ngIf="cheque.valid; else elseBlock">✔️</span>
+            <ng-template #elseBlock>❌</ng-template>
+        </div>
+    </div>
+
+
+    <button type="button" class="btn btn-outline-primary" (click)="addCheque()"> הוסף צ'ק
+    </button>
+</main>
+
+<app-warning-message *ngIf="WarningMessageOpen" [text]="WarningMessageText"
+    (WarningMessageOpen)="handleWarningClose($event)" dir="rtl">
+</app-warning-message>

@@ -1,0 +1,59 @@
+﻿<div class="skipLink">
+  <a [href]="skipLinkPath">Skip to Main Content</a>
+</div>
+
+
+<nav class="navbar navbar-expand-sm navbar-light border-bottom justify-content-between">
+
+  <a class="navbar-brand" [routerLink]="['/']">
+    אלטמן מרום
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
+    (click)="navbarTogglerDemo02 = !navbarTogglerDemo02">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02" dir=rtl>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-item nav-link active" routerLink="/">
+          שלום
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-item nav-link active" routerLink="/">
+          החשבון שלי
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-item nav-link active" [routerLink]="['/myApartments']">
+          הדירות שלי
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-item nav-link active" (click)="logout()">
+          יציאה
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+</nav>
+
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side">
+    Sidenav content
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
+    <p>Events:</p>
+    <div class="example-events">
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

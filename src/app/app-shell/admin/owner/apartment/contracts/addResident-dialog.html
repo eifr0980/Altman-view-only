@@ -1,0 +1,53 @@
+<h1 mat-dialog-title dir="rtl">הוספת דיירים</h1>
+<form [formGroup]="profileForm">
+  <div mat-dialog-content dir="rtl">
+    <table>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="שם פרטי" formControlName="first_name">
+            <mat-error *ngIf="profileForm.get('first_name').hasError('required')">נא להשלים</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="שם משפחה" formControlName="last_name">
+            <mat-error *ngIf="profileForm.get('last_name').hasError('required')">נא להשלים</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="מספר טלפון" formControlName="phone_number">
+            <mat-error *ngIf="profileForm.get('phone_number').hasError('required')">נא להשלים</mat-error>
+            <mat-error *ngIf="profileForm.get('phone_number').hasError('minlength')">הכנס מספר טלפון תקין</mat-error>
+            <mat-error *ngIf="profileForm.get('phone_number').hasError('maxlength')">הכנס מספר טלפון תקין</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="מייל" formControlName="email">
+            <mat-error *ngIf="profileForm.get('email').hasError('required')">נא להשלים</mat-error>
+            <mat-error *ngIf="profileForm.get('email').hasError('email')">כתובת מייל לא תקינה</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="custom-file">
+            <input type="file" placeholder="תמונת פרופיל" class="custom-file-input" id="customFile" (change)="onFileSelect($event)">
+            <label class="custom-file-label" for="customFile">הוסף תמונת פרופיל</label>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">ביטול</button>
+    <button mat-button type="submit" [disabled]="!profileForm.valid" [mat-dialog-close]="profileForm.value">שלח</button>
+  </div>
+</form>

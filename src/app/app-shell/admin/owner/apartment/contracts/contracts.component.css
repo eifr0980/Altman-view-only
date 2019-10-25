@@ -1,0 +1,25 @@
+#mainContent {
+    width: 100%;
+    background-color: #92DED5;
+    height: 47vh;
+    border-radius: 50px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#mainContent .contract {
+    width:33.3%;
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    align-items: center;
+}
+
+.divider {
+    width: 4px;
+    background: #0b8d7f7a;
+    border-radius: 500px;
+    height: 70%;
+  }

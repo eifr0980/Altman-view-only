@@ -1,0 +1,33 @@
+#mainContent {
+    width: 100%;
+    background-color: #31C0B0;
+    height: 47vh;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    margin: 0 .5vw;
+    justify-content: center;
+    padding: 3%;
+}
+
+#ownersList {
+    width: 46%;
+}
+.owner {
+    list-style: none;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 3px;
+}
+
+.owner a {
+    background-color: #DBF4F1;
+    border-radius: 29px;
+    padding: 3px 0;
+    width: 37%;;
+    text-align: center;
+    color: #0EB5A3;
+}

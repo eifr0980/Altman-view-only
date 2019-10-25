@@ -1,0 +1,26 @@
+<main id="mainContent" dir="rtl">
+  <section id="ApartmentDetails" *ngIf="apartment">
+    <h1 id="heading">
+      {{ apartment.address }}
+    </h1>
+
+    <button [routerLink]="['/']" color="primary" mat-fab aria-label="Go home" id="homeButton">
+      <mat-icon>home</mat-icon>
+    </button>
+    <div class="content">
+      <nav mat-tab-nav-bar>
+        <div *ngFor="let link of navLinks">
+          <a mat-tab-link [style.background-color]="link.backgroundColor"
+            [routerLink]='[{ outlets: { action: [link.link] } }]' routerLinkActive #rla="routerLinkActive"
+            [active]="rla.isActive">
+            {{link.label}}
+          </a>
+        </div>
+      </nav>
+
+      <div class="routeContent">
+        <router-outlet name="action"></router-outlet>
+      </div>
+    </div>
+  </section>
+</main>

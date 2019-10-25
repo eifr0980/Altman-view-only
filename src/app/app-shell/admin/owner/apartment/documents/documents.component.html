@@ -1,0 +1,37 @@
+<main id="mainContent" dir="rtl">
+    <div class="folders" *ngIf="!chosenCategory; else elseBlock">
+        <a (click)="getDocuments(category.category)" class="folder" *ngFor="let category of categories">
+            <div class="icon">
+                <mat-icon [inline]="true">folder_open</mat-icon>
+                <span class="text">{{ category.category }}</span>
+            </div>
+        </a>
+    </div>
+
+    <ng-template #elseBlock>
+            {{ chosenCategory }}
+
+        <div class="container">
+            <div class="folders">
+                <a class="folder" *ngFor="let document of documents">
+                    <div class="icon">
+                        <mat-icon [inline]="true">description</mat-icon>
+                        <span class="text">{{ document.name }}</span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </ng-template>
+    <div class="buttons">
+        <button type="button" class="btn btn-danger" (click)="chosenCategory = null" *ngIf="chosenCategory">חזור
+            לתיקיות
+        </button>
+        <button type="button" class="btn btn-outline-primary" (click)="addDocument()"> הוסף מסמך
+        </button>
+    </div>
+</main>
+
+<app-warning-message *ngIf="WarningMessageOpen" [text]="WarningMessageText"
+    (WarningMessageOpen)="handleWarningClose($event)" dir="rtl">
+</app-warning-message>

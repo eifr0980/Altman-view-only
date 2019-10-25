@@ -1,0 +1,23 @@
+<main id="mainContent" dir="rtl">
+
+  <section id="myApartments">
+    <h1 id="heading">
+      הדירות שלי
+    </h1>
+
+    <div class="slider" dir="rtl" #widgetsContent>
+      <div *ngFor="let apt of apartments" class="apts">
+        <a [routerLink]="[ './', apt.id ]">
+          <h3> {{ apt.address }} </h3>
+          <div class="apt">
+            <img class="" src="{{ api }}/{{ apt.owner_id }}/apartments/{{ apt.id }}/{{ apt.img }}" alt="">
+
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+  </section>
+
+</main>

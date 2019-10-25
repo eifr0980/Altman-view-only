@@ -1,0 +1,12 @@
+<main id="mainContent" dir="rtl">
+    <div id="addOwner"><button (click)="openDialog()">הוסף בעל דירה</button>
+    </div>
+    <ul id="ownersList" *ngIf="owners">
+        <li *ngFor="let owner of owners" class="owner">
+            <ng-container *ngIf="!owner.is_admin">
+                <span>{{ owner.first_name }} {{ owner.last_name }}</span>
+                <a [routerLink]="[ '/admin', owner.id ]">מעבר לעמוד לקוח</a>
+            </ng-container>
+        </li>
+    </ul>
+</main>

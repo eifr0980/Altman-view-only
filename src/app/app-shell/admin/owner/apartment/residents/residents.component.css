@@ -1,0 +1,25 @@
+#mainContent {
+    width: 100%;
+    background-color: #DBF4F1;
+    height: 47vh;
+    border-radius: 50px 0 50px 50px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#mainContent .resident {
+    width:33.3%;
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    align-items: center;
+}
+
+.divider {
+    width: 4px;
+    background: #0b8d7f7a;
+    border-radius: 500px;
+    height: 70%;
+  }

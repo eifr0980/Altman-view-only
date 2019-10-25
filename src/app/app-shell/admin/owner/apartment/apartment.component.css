@@ -1,0 +1,35 @@
+#mainContent {
+    width: 76%;
+    margin: 0 auto;
+}
+#heading {
+    margin: 1.5rem 0;
+}
+
+.mat-tab-link {
+    background: green;
+    border-radius: 3vw;
+    width: 10vw ;
+    height: 10vw;
+    font-size: 1.4em;
+    opacity: 1;
+    margin-bottom: 21px;
+    min-width: 100px;
+}
+
+::ng-deep .mat-tab-header-pagination, ::ng-deep .mat-ink-bar {
+    display: none !important;
+}
+
+::ng-deep .mat-tab-links{
+    justify-content: space-between;
+}
+.mat-tab-header, .mat-tab-nav-bar {
+    border-bottom: none;
+}
+
+.mat-tab-label-active {
+    border-radius: 50px 50px 0 0;
+    height: 12vw;
+    margin-bottom: 0;
+}

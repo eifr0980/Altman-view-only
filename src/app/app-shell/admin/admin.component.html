@@ -1,0 +1,48 @@
+<mat-sidenav-container class="container" fullscreen>
+  <mat-sidenav #sidenav mode="push" position="end" [(opened)]="opened">
+    אה כפרה 😉
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <nav class="navbar navbar-expand-sm navbar-light border-bottom justify-content-between">
+
+      <a class="navbar-brand" [routerLink]="['/']">
+        אלטמן מרום
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" (click)="sidenav.toggle()"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02" dir=rtl>
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-item nav-link active" routerLink="/">
+              שלום
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-item nav-link active" routerLink="/">
+              החשבון שלי
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-item nav-link active" [routerLink]="['/myApartments']">
+              הדירות שלי
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-item nav-link active" (click)="logout()">
+              יציאה
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+    </nav>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

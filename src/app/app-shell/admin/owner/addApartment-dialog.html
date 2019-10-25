@@ -1,0 +1,44 @@
+<h1 mat-dialog-title dir="rtl">הוספת דירה חדשה</h1>
+<form [formGroup]="profileForm">
+  <div mat-dialog-content dir="rtl">
+    <table>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="כתובת" formControlName="address" required>
+            <mat-error *ngIf="profileForm.get('address').hasError('required')">נא להשלים</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput placeholder="שווי" formControlName="value">
+            <mat-error *ngIf="profileForm.get('value').hasError('required')">נא להשלים</mat-error>
+            <mat-error *ngIf="profileForm.get('value').hasError('minlength')">ת"ז צריכה להיות 9 ספרות</mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="custom-file">
+            <input type="file" placeholder="קובץ" class="custom-file-input" id="customFile" (change)="onFileSelect($event)">
+            <label class="custom-file-label" for="customFile">הוסף תמונה</label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-checkbox formControlName="is_rented">מושכר?</mat-checkbox>
+        </td>
+      </tr>
+    </table>
+
+
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">ביטול</button>
+    <button mat-button type="submit" [disabled]="!profileForm.valid" [mat-dialog-close]="profileForm.value">שלח</button>
+  </div>
+</form>

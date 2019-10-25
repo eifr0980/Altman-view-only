@@ -1,0 +1,28 @@
+<main id="mainContent" dir="rtl">
+    <div class="resident" *ngFor="let resident of residents">
+        <div class="details">
+            <p>
+                <span><strong>שם פרטי:</strong> {{ resident.first_name }} </span>
+            </p>
+
+            <p>
+                <span><strong>שם משפחה:</strong> {{ resident.last_name }} </span>
+            </p>
+            <p>
+                <span><strong>נייד:</strong> <a href="tel:{{resident.phone_number}}"> {{ resident.phone_number }}
+                    </a></span>
+            </p>
+            <p>
+                <span><strong>אימייל:</strong> <a href="mailto: {{ resident.email }}"> {{ resident.email }} </a></span>
+            </p>
+        </div>
+        <div class="divider"></div>
+    </div>
+    <mat-progress-spinner *ngIf="!residents || residents.length <= 0" class="example-margin" [mode]="progressMode" [color]="primary"
+        [value]="uploadResponse?.message">
+    </mat-progress-spinner>
+</main>
+
+<app-warning-message *ngIf="WarningMessageOpen" [text]="WarningMessageText"
+    (WarningMessageOpen)="handleWarningClose($event)" dir="rtl">
+</app-warning-message>

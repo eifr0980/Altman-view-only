@@ -1,0 +1,52 @@
+<mat-sidenav-container class="container" fullscreen>
+  <mat-sidenav #sidenav mode="over" position="end" [(opened)]="opened">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0" dir="rtl">
+      <li *ngFor="let link of links" class="nav-item active">
+        <a class="nav-item nav-link active" [routerLink]="link.link">
+          {{ link.label }}
+        </a>
+      </li>
+      <li class="nav-item link-sidebar active">
+        <a class="nav-item nav-link active" href="/" (click)="logout()">
+          יציאה
+        </a>
+      </li>
+
+    </ul>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <nav class="navbar navbar-expand-sm navbar-light border-bottom justify-content-between">
+
+      <a class="navbar-brand" [routerLink]="['/']">
+        אלטמן מרום
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" (click)="sidenav.toggle()"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02" dir=rtl>
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li *ngFor="let link of links" class="nav-item active">
+            <a class="nav-item nav-link active" href="/" [routerLink]="link.link">
+              {{ link.label }}
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-item nav-link active" (click)="logout()">
+              יציאה
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+    </nav>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

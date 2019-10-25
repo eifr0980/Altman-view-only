@@ -1,0 +1,53 @@
+<h1 mat-dialog-title dir="rtl">הוספת חוזה</h1>
+<form [formGroup]="profileForm">
+  <div mat-dialog-content dir="rtl">
+    <table>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker1" placeholder="תאריך התחלת חוזה" formControlName="created_at">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker2" placeholder="תאריך סיום חוזה" formControlName="end_at">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input matInput type="number" max="30" min="1" placeholder="יום בחודש לפרעון צ'ק" formControlName="cheques_valid_date">
+            <mat-error *ngIf="profileForm.get('cheques_valid_date').hasError('required')">נא להשלים</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+            <mat-checkbox formControlName="is_last_cheque_valid">האם הצ'ק האחרון תקין?</mat-checkbox>
+          </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="custom-file">
+            <input type="file" placeholder="קובץ" class="custom-file-input" id="customFile"
+              (change)="onFileSelect($event)">
+            <label class="custom-file-label" for="customFile">הוסף העתק חוזה</label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+
+      </tr>
+    </table>
+
+
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">ביטול</button>
+    <button mat-button type="submit" [disabled]="!profileForm.valid" [mat-dialog-close]="profileForm.value">שלח</button>
+  </div>
+</form>

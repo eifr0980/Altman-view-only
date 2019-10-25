@@ -1,0 +1,27 @@
+<main id="mainContent" dir="rtl">
+  <div class="contract" *ngFor="let contract of contracts">
+      <div class="details">
+          <p>
+              <span><strong>נוצר ב:</strong> {{ contract.created_at }} </span>
+          </p>
+
+          <p>
+              <span><strong>עודכן ב:</strong> {{ contract.updated_at }} </span>
+          </p>
+          <p>
+              <span><strong>מסתיים בתאריך:</strong> {{ contract.end_at }} </span>
+          </p>
+          <p>
+              <span><strong>תקינות צ'ק אחרון:</strong> {{ contract.is_last_cheque_valid }} </span>
+          </p>
+          <p>
+              <span><strong>יום בחודש לפרעון:</strong> {{ contract.cheques_valid_date }} </span>
+          </p>
+          <p>
+              <span><strong>צפה בקובץ </strong> <button type="button" class="btn btn-outline-info" (click)="showPDF(contract.apt_id + '/contracts/'+ contract.id + '/' + contract.file)">קובץ</button>
+              </span>
+          </p>
+      </div>
+      <div class="divider"></div>
+  </div>
+</main>

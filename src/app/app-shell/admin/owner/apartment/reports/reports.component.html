@@ -1,0 +1,26 @@
+<main id="mainContent" dir="rtl">
+  <div class="details" *ngIf="report">
+    <p>
+      <span><strong>צפה בקובץ </strong> <button type="button" class="btn btn-success"
+          (click)="showPDF(report.owner_id +'/reports/' + report.file)">לחץ כאן</button>
+      </span>
+    </p>
+
+    <p>
+      <span><strong>נוצר בתאריך:</strong> {{ report.created_on }} </span>
+    </p>
+    <p>
+      <span><strong>עודכן בתאריך</strong> {{ report.updated_on }} </span>
+    </p>
+  </div>
+  <mat-progress-spinner *ngIf="!report " class="example-margin" [mode]="progressMode" [color]="primary"
+    [value]="uploadResponse?.message">
+  </mat-progress-spinner>
+  <div>
+    <button type="button" class="btn btn-outline-primary" (click)="addReport()"> הוסף דו"ח חדש</button>
+  </div>
+
+</main>
+<app-warning-message *ngIf="WarningMessageOpen" [text]="WarningMessageText"
+  (WarningMessageOpen)="handleWarningClose($event)" dir="rtl">
+</app-warning-message>

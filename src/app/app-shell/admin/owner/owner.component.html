@@ -1,0 +1,42 @@
+<main id="mainContent" dir="rtl">
+
+  <section id="myApartments" *ngIf="owner">
+    <h1 id="heading">
+      הדירות של <span>{{ owner.first_name}} </span><span>{{ owner.last_name}}</span>
+    </h1>
+
+
+    <div class="slider" dir="rtl" #widgetsContent>
+      <div *ngFor="let apt of apartments" class="apts">
+        <a [routerLink]="[ './', apt.id ]">
+          <h3> {{ apt.address }} </h3>
+          <div class="apt">
+            <img class="" src="{{ api }}/{{ apt.owner_id }}/apartments/{{ apt.id }}/{{ apt.img }}" alt="">
+          </div>
+        </a>
+      </div>
+
+      <div class="apts">
+        <a>
+          <h3>הוסף דירה</h3>
+          <a (click)="openDialog()">
+            <div class="add-apt apt">
+              <span class="plusIcon">
+                <mat-icon [inline]="true">add</mat-icon>
+              </span>
+
+            </div>
+          </a>
+        </a>
+      </div>
+    </div>
+    <mat-progress-spinner *ngIf="!apartments" class="example-margin" [mode]="progressMode" [color]="primary"
+        [value]="uploadResponse?.message">
+    </mat-progress-spinner>
+
+  </section>
+
+</main>
+<app-warning-message *ngIf="WarningMessageOpen" [text]="WarningMessageText"
+  (WarningMessageOpen)="handleWarningClose($event)" dir="rtl">
+</app-warning-message>

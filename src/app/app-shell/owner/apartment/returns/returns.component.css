@@ -1,0 +1,46 @@
+#mainContent {
+    width: 100%;
+    height: 100%;
+    background-color: #0EB5A3;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+}
+.divider {
+    width: 62%;
+    margin: 4% 0;
+    background: #0b8d7f7a;
+    border-radius: 50px;
+    height: 4px;
+}
+@media only screen and (min-width: 768px) {
+    #mainContent {
+        height: 47vh;
+        border-radius: 50px;
+        padding: 0;
+
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #mainContent .resident {    
+        width: 33.3%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .divider {
+        width: 4px;
+        margin: -15% 0;
+    }
+}
+
+.details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    padding: 0 10%;
+}
