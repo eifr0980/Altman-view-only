@@ -20,7 +20,7 @@
     "@angular/service-worker": "^8.2.12",
     "@ng-bootstrap/ng-bootstrap": "^5.1.1",
     "@types/node": "^12.11.7",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.3.1",
     "cookie-parser": "^1.4.3",
